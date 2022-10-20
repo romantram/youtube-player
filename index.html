@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>YouTube player</title>
+        <style type="text/css">
+            .invisible {
+                display: none;
+            }
+            .h-size {
+                height: 360px;
+            }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <!-- bootstrap grid -->
+        <div class="container my-5 border rounded-3 shadow-lg">
+            <main>
+                <div class="row">
+                    <div class="col-lg-5 pt-5 px-5">
+                        <h1 class="display-6 fw-bold lh-1 mb-3">Odtwarzacz <span style="color:#dc3545">YouTube</span></h1>
+
+                        <!-- form elements -->
+                        <form id="form" name="form">
+                            <p class="lead"><label for="videoId">Podaj adres URL lub ID filmu na YouTube</label></p>
+                            <input class="form-control" type="text" id="videoId" name="videoId" value="">
+                            <button type="submit" id="submit" name="submit" class="btn btn-danger btn-lg px-4 mt-4">Play</button>
+                        </form>
+                        <!-- END form elements -->
+                    
+                    </div>
+                    <div class="col-lg-7 p-5">
+                        <div class="shadow my-3 h-size" id="player"></div>
+                        <div>
+                            <!-- play icon -->
+                            <span id="play" class="invisible">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#dc3545" class="bi bi-play-btn" viewBox="0 0 16 16">
+                                    <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                </svg>
+                            </span>
+
+                            <!-- pause icon -->
+                            <span id="pause" class="invisible">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#198754" class="bi bi-pause-btn" viewBox="0 0 16 16">
+                                    <path d="M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/>
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                </svg>
+                            </span>
+
+                            <!-- stop icon -->
+                            <span id="stop" class="invisible">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-stop-btn" viewBox="0 0 16 16">
+                                    <path d="M6.5 5A1.5 1.5 0 0 0 5 6.5v3A1.5 1.5 0 0 0 6.5 11h3A1.5 1.5 0 0 0 11 9.5v-3A1.5 1.5 0 0 0 9.5 5h-3z"/>
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                </svg>
+                            </span>
+                            
+                            <!-- counter -->
+                            <span id="counter" class="invisible"></span>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!-- END bootstrap grid -->
+
+        <script src="yt-player.js"></script>
+    </body>
+</html>
